@@ -7,7 +7,7 @@ import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.website,
+  site: "https://chefleonwang.github.io",
   base: "/",
   output: "static",
   integrations: [
