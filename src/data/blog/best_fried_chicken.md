@@ -19,7 +19,6 @@ tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 ---
 
 ## 🧂 Brine (most important part)
-
 - 1 small onion, thinly sliced  -----> shallot
 - 4 garlic cloves, smashed  ----->  minced garlic
 - 1 tsp vegetable oil  -----> 1 tsp olive oil
@@ -27,14 +26,13 @@ tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 - 5–6 branches rosemary (4–5 inches long)  -----> green and red pepper
 - 4½ cups / 1L water  
 - 1 lemon, quartered  -----> apple vinegar
+- (optional) 1g MSG //所有的商业炸鸡都有，1g的用量非常健康
 
 ## 🍗 Chicken
-
 - 8 chicken legs (drumsticks and thighs separated)  
 - 8 chicken wings (wing tips removed)  -----> NONONO, too many
 
 ## 🍚 Dredging Mixture
-
 - 3 cups / 420g all-purpose flour -----> 1 cup all-purpose flour
 - 3 tbsp black pepper             -----> 1 tbsp black pepper
 - 2 tbsp paprika                  -----> 1 tbsp smoked paprika
@@ -42,11 +40,13 @@ tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 - 2 tsp cayenne                   -----> 2 tsp cayenne
 - 2 tbsp baking powder            -----> removed, just personally I am not into using it
 - 2 cups / 480ml buttermilk       -----> 1 cup buttermilk
--                                 -----> 1 tbsp garlic powder
+- (optional) 1 tbsp garlic powder
 
--                                 -----> 1 tbsp turmeric powder
--                                 -----> 1 tbsp turmeric powder
-**Chili Oil:** 
+- (optional) 1 tbsp turmeric powder
+- (optional) 1 tbsp turmeric powder
+- (optional) 1g MSG //所有的商业炸鸡都有，1g的用量非常健康
+
+**Chili Oil (Dave's hot chicken style):** 
 - ¼ cup reserved frying oil
 - 2 tablespoon cayenne pepper
 - 1 teaspoon smoked paprika
@@ -64,8 +64,8 @@ tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 
 1. **Make the brine:**  
    In a medium saucepan, sauté onion and garlic in oil until translucent (~3–4 mins).  
-   Add 1 tbsp salt, green and red pepper (香叶八角都可以一点点), cook 30s.  
-   Add 500 ml water and simmer to dissolve salt. Then add another 500 ml water or ice to cool and apple vinegar.
+   Add green and red pepper (香叶八角都可以一点点), cook 30s.  
+   Add 500 ml water and simmer to dissolve all 50g salt. Then add another 500 ml water or ice to cool and apple vinegar.
 
 2. **Brine the chicken:**  
    Add chicken and brine to a sturdy plastic bag in a bowl.  
