@@ -3,7 +3,7 @@
 title: "Exploration Strategies in DQN: Epsilon-Greedy vs Boltzmann"
 pubDatetime: 2025-05-18T09:00:00Z
 description: "Understanding the two most common exploration strategies used in Deep Q-Learning: epsilon-greedy and Boltzmann (softmax) exploration."
-tags: \[GPT-generated,RL, DQN, Exploration, Epsilon-Greedy, Boltzmann, Reinforcement Learning]
+tags: [GPT-generated,RL, DQN, Exploration, Epsilon-Greedy, Boltzmann, Reinforcement Learning]
 --------------------------------------------------------------------------------
 
 When training agents with Deep Q-Learning (DQN), exploration is critical — without it, the agent can get stuck exploiting suboptimal behavior. This post compares two widely-used exploration methods: **epsilon-greedy** and **Boltzmann (softmax) exploration**.
