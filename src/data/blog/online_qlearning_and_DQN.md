@@ -3,7 +3,7 @@
 title: "Is DQN an Online Q-learning Algorithm? Exploring the Boundary"
 pubDatetime: 2025-05-18T09:00:00Z
 description: "Is DQN an online Q-learning method? What if the minibatch size is 1? This post explores when DQN behaves like an online algorithm and clarifies how it connects to classical Q-learning."
-tags: [RL, DQN, Q-learning, online learning, deep RL]
+tags: [RL, DQN, Q-learning, online q learning, deep RL]
 ---
 
 All from GPT, it looks good for now:)
