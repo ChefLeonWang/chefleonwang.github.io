@@ -16,13 +16,13 @@ When training agents with Deep Q-Learning (DQN), exploration is critical — wit
 
 With probability $\varepsilon$, the agent **explores** by choosing a random action. With probability $1 - \varepsilon$, it **exploits** by choosing the best known action.
 
-```math
+$$
 a =
 \begin{cases}
 \text{random action} & \text{with probability } \varepsilon \\
 \arg\max_a Q(s,a) & \text{with probability } 1 - \varepsilon
 \end{cases}
-```
+$$
 
 ### 🔧 Typical usage:
 
