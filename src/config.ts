@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://chefleonwang.github.io", // replace this with your deployed domain
   author: "Leon Wang",
   profile: "https://chefleonwang.github.io",
-  desc: "一个技术人写菜谱，一个厨师讲代码",
+  desc: "心心念念地中海",
   title: "Chef Leon",
   subtitle: "不想长大",
   intro_1:"Good good study, day day drink, gym and read:)",
