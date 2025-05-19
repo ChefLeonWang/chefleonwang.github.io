@@ -41,8 +41,6 @@ tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 - 2 tbsp baking powder            -----> removed, just personally I am not into using it
 - 2 cups / 480ml buttermilk       -----> 1 cup buttermilk
 - (optional) 1 tbsp garlic powder
-
-- (optional) 1 tbsp turmeric powder
 - (optional) 1 tbsp turmeric powder
 - (optional) 1g MSG //所有的商业炸鸡都有，1g的用量非常健康
 

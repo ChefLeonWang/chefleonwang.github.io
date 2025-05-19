@@ -9,8 +9,8 @@ export const SITE = {
   intro_2:"不观自在，不觉有情",
   ogImage: "odg.png",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
+  postPerIndex: 999,
+  postPerPage: 999,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
   showBackButton: true, // show back button in post detail
