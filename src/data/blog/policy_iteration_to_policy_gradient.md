@@ -3,7 +3,7 @@
 title: "Policy Iteration → Policy Gradient: A Natural Evolution"
 pubDatetime: 2025-05-19T16:30:00Z
 description: "Why policy gradient methods emerged from the limitations of classical policy iteration, especially in continuous or high-dimensional action spaces. Includes key math and references."
-tags: \[RL, Policy Gradient, Policy Iteration, Continuous Control, Deep RL]
+tags: [RL, Policy Gradient, Policy Iteration, Continuous Control, Deep RL]
 ---------------------------------------------------------------------------
 
 As reinforcement learning evolved from tabular environments to high-dimensional, continuous domains, classical methods like **Policy Iteration** faced major limitations. This naturally led to the emergence of **Policy Gradient** methods — a continuous, differentiable, and scalable generalization of the policy improvement idea.
