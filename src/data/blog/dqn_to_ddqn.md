@@ -85,11 +85,11 @@ In real-world environments (with sparse or delayed rewards), this can make learn
 ```
 
 Here:
+We want to decorrelate the noise in value and action, both of which comes from the same network.
 
+Idea: do no use the same network to choose the action and evaluate value.
 * The **main network** $Q_{\phi}$ selects the best action, which is 
-```math
-\arg\max_{a'} Q_{\phi}(s', a')
-```
+
 * The **target network** $Q_{\phi'}$ evaluates it
 
 This way, noise from $Q_{\phi}$ doesn’t inflate the value estimate.
@@ -110,7 +110,7 @@ The evaluation is more **neutral**, making learning more stable.
 
 | Method         | Target Value Formula                                   | Overestimation Risk |
 | -------------- | ------------------------------------------------------ | ------------------- |
-| **DQN**        | $r + \gamma \max_a Q_{\phi'}(s', a)$                   | High                |
+| **DQN**        | $r + \gamma Q_{\phi'}(s', \arg\max_a Q_{\phi'}(s', a))$                   | High                |
 | **Double DQN** | $r + \gamma Q_{\phi'}(s', \arg\max_a Q_{\phi}(s', a))$ | Reduced             |
 
 ---
