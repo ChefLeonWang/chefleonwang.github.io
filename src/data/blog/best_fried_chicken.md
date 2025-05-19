@@ -1,16 +1,15 @@
 ---
 title: "Brined, Buttermilk Fried Chicken"
 pubDatetime: 2025-05-17T18:08:53.104477
-description: "我吃过的最屌的，别拿popeye这些玩意儿来说"
+description: "好吃😋😋😋"
 tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
 featured: true
 ---
 
 # 🍗 Brined, Buttermilk Fried Chicken
-
-吃过很多很多很多的炸鸡，这是升级版的southern fried chicken,原本的recipe来自于“RUHLMAN'S TWENTY”这本书，他的灵感启发于napa valley的AD HOC餐厅。
-
 > The best fried chicken.  
+吃过很多很多很多的炸鸡（连锁的不连锁的，boston的NYC的NOLA的LA的SF的OAKLAND的），这是升级版的southern fried chicken,原本的recipe来自于“RUHLMAN'S TWENTY”这本书，他的灵感启发于napa valley的AD HOC餐厅。
+
 
 我对原书中的很多成分按照自己的理解做了细微调整。有的是为了简便，有的是为了提升风味层次，有的是为了照顾自己熟悉的中国味蕾：）
 
