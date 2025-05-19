@@ -3,7 +3,7 @@
 title: "From DQN to Double DQN: Fixing Overestimation Bias"
 pubDatetime: 2025-05-18T11:00:00Z
 description: "Understand the overestimation problem in Deep Q-Learning and how Double DQN (DDQN) provides a simple but powerful fix by decoupling action selection and evaluation."
-tags: \[RL, DQN, DDQN, Q-learning, Overestimation, Deep RL]
+tags: [RL, DQN, DDQN, Q-learning, Overestimation, Deep RL]
 -----------------------------------------------------------
 
 Deep Q-Networks (DQN) marked a breakthrough in reinforcement learning. But they come with a hidden issue: **overestimation bias** in Q-values. This post explains where it comes from and how **Double DQN (DDQN)** solves it.
