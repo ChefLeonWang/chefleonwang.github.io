@@ -7,8 +7,7 @@ tags: [GPT, RL, DQN, Siamese Network, Target Network, Q-learning, Deep RL]
 ----------------------------------------------------------------------
 
 In Deep Q-Learning (DQN), stability is everything. One of the key tricks to make DQN work is the use of a **target network** — a second copy of the Q-function that’s not updated as frequently. Interestingly, this setup mirrors the structure of **Siamese networks** used in contrastive learning.
-
-Paper reference:  
+ 
 ---
 
 ## 🔁 The Two Networks in DQN
