@@ -3,6 +3,7 @@ title: "Brined, Buttermilk Fried Chicken"
 pubDatetime: 2025-05-17T18:08:53.104477
 description: "我吃过的最屌的，别拿popeye这些玩意儿来说"
 tags: ["fried chicken", "recipe", "buttermilk", "brine", "comfort food"]
+featured: true
 ---
 
 # 🍗 Brined, Buttermilk Fried Chicken
