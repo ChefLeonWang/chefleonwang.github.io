@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://chefleonwang.github.io",
   desc: "心心念念地中海",
   title: "Chef Leon",
-  subtitle: "不想长大",
+  subtitle: "A stupid conversation with the smart chatbot",
   intro_1:"Good good study, day day drink, gym and read:)",
   intro_2:"不观自在，不觉有情",
   ogImage: "odg.png",
