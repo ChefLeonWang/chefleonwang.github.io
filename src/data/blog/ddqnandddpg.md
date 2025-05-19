@@ -1,7 +1,7 @@
 ---
 
 title: "DDQN vs. DDPG: Understanding Two Powerful Off-Policy RL Algorithms"
-pubDatetime: 2025-05-18T12:00:00Z
+pubDatetime: 2025-05-19T14:36:00Z
 description: "A clear side-by-side comparison between Double Deep Q-Networks (DDQN) and Deep Deterministic Policy Gradient (DDPG), highlighting the key differences in structure, use cases, and action spaces."
 tags: [RL, DDQN, DDPG, Actor-Critic, Q-Learning, Deep RL]
 ----------------------------------------------------------
