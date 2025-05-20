@@ -1,18 +1,18 @@
 ---
 
-title: "Importanace sampling and trust region: Distribution Mismatch and Why Small Policy Updates Work"
-pubDatetime: 2025-05-19T14:00:00Z
+title: "Distribution Mismatch and Why Small Policy Updates Work"
+pubDatetime: 2025-05-20T14:00:00Z
 description: "Combining practical tricks and theoretical bounds to justify ignoring distribution mismatch in policy gradient updates."
 tags: [RL, Policy Gradient, Importance Sampling, TRPO, PPO, Distribution Shift]
 --------------------------------------------------------------------------------
 
 When optimizing policies in reinforcement learning using policy gradients, we often evaluate objectives using data from the current policy $\pi_\theta$, even though the objective involves the next policy $\pi_{\theta'}$. This introduces a **distribution mismatch** — and yet, it works well in practice.
 
-In this post, we’ll:
-
+Goal:
 * Explain how we approximate policy improvement objectives
 * Show the role of **importance sampling**
 * Derive a **theoretical bound** on how much the mismatch can matter
+* Explore how **KL divergence** and **clipping** stabilize updates in modern algorithms
 
 ---
 
@@ -45,8 +45,6 @@ Using importance sampling with respect to $\pi_\theta$:
 ```math
 = \sum_t \mathbb{E}_{s_t \sim p_{\theta'}(s_t), a_t \sim \pi_\theta(a_t | s_t)} \left[ \frac{\pi_{\theta'}(a_t | s_t)}{\pi_\theta(a_t | s_t)} \gamma^t A^{\pi_\theta}(s_t, a_t) \right]
 ```
-
-This form allows us to use data collected from $\pi_\theta$, even though we want to evaluate the new policy $\pi_{\theta'}$.
 
 To simplify computation further, we approximate the state distribution $p_{\theta'}(s_t) \approx p_\theta(s_t)$, yielding:
 
@@ -129,6 +127,57 @@ Final bound:
 
 ---
 
+## 📐 A More Convenient Bound Using KL Divergence
+
+Rather than bounding per-step policy differences in terms of total variation (TV) distance, we can use **KL divergence**:
+
+### 🔹 Pinsker’s Inequality
+
+```math
+|\pi_{\theta'}(a|s) - \pi_\theta(a|s)| \leq \sqrt{\frac{1}{2} D_{\text{KL}}(\pi_{\theta'}(\cdot|s) \| \pi_\theta(\cdot|s))}
+```
+
+This gives a differentiable and tractable surrogate for measuring **policy closeness**.
+
+KL divergence is defined as:
+
+```math
+D_{\text{KL}}(p(x) \| q(x)) = \mathbb{E}_{x \sim p} \left[ \log \frac{p(x)}{q(x)} \right]
+```
+
+Hence, small KL implies that $p_{\theta'}(s_t) \approx p_\theta(s_t)$, and is used directly in:
+
+* TRPO: enforce KL trust region constraint
+* PPO: KL used implicitly via clipping surrogate
+
+---
+
+## 🔧 Clipping in PPO
+
+Clipping is an alternative to KL penalty that avoids explicitly computing divergence:
+
+Define the ratio:
+
+```math
+r_t(\theta') = \frac{\pi_{\theta'}(a_t|s_t)}{\pi_\theta(a_t|s_t)}
+```
+
+PPO optimizes the clipped surrogate objective:
+
+```math
+L^{\text{CLIP}}(\theta') = \mathbb{E}_t \left[ \min \left( r_t(\theta') \hat{A}_t, \text{clip}(r_t(\theta'), 1 - \epsilon, 1 + \epsilon) \hat{A}_t \right) \right]
+```
+
+This prevents the ratio $r_t$ from going too far from 1, enforcing implicit trust regions and ensuring stable updates.
+
+Clipping is:
+
+* Simpler to implement
+* Efficient for large batches
+* A key feature of PPO’s success
+
+---
+
 ## 🧠 Interpretation
 
 > If the new policy is close to the old one (small $\epsilon$), and you’re not looking too far into the future (small $t$), then the mismatch in state distributions is **provably small**.
@@ -139,16 +188,24 @@ This justifies using $p_\theta$ in practice, and training via gradient ascent on
 J(\theta') - J(\theta) \approx \bar{A}(\theta')
 ```
 
+Or using surrogate losses like:
+
+```math
+L^{\text{CLIP}}(\theta')
+```
+
 ---
 
 ## 📌 Summary
 
-| What We Want                      | What We Approximate With       | Why It's OK                                        |
-| --------------------------------- | ------------------------------ | -------------------------------------------------- |
-| $\mathbb{E}_{p_{\theta'}}[\cdot]$ | $\mathbb{E}_{p_\theta}[\cdot]$ | Only valid when $\pi_{\theta'} \approx \pi_\theta$ |
-| $p_{\theta'}(s_t)$                | $p_\theta(s_t)$                | Bound: $\leq 2\epsilon t$                          |
+| Concept             | Role                                                               |                                      |                    |
+| ------------------- | ------------------------------------------------------------------ | ------------------------------------ | ------------------ |
+| Importance Sampling | Use data from old policy to estimate new policy objective          |                                      |                    |
+| TV distance bound   | (                                                                  | p\_{\theta'}(s\_t) - p\_\theta(s\_t) | \leq 2\epsilon t ) |
+| KL divergence       | Convenient surrogate for TV: $D_{\text{KL}}$ bounds TV via Pinsker |                                      |                    |
+| PPO Clipping        | Ensures ratio stays near 1, prevents instability                   |                                      |                    |
 
-This is the bridge between **approximate gradient ascent** and **true policy improvement theory**.
+This is the bridge between **approximate gradient ascent** and **stable policy optimization**.
 
 ---
 
