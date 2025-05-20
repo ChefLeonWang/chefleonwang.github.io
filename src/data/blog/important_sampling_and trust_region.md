@@ -197,7 +197,56 @@ In both cases, clipping avoids large policy changes — achieving the same stabi
 * $\epsilon \in [0.1, 0.3]$ — common values in PPO implementations
 * Used with **adaptive learning rate** and **early stopping by KL threshold** to further stabilize updates
 
+---
 
+## 🔒 TRPO: Enforcing KL Constraints via Dual Gradient Descent
+
+In contrast to PPO’s clipping method, Trust Region Policy Optimization (TRPO) enforces a **hard constraint** on the KL divergence between the new and old policy.
+
+### 🔹 Objective and Constraint
+
+We want to solve:
+
+```math
+\theta' \leftarrow \arg\max_{\theta'} \sum_t \mathbb{E}_{s_t, a_t} \left[ \frac{\pi_{\theta'}(a_t | s_t)}{\pi_\theta(a_t | s_t)} \gamma^t A^{\pi_\theta}(s_t, a_t) \right]
+```
+
+Subject to:
+
+```math
+D_{KL}\left( \pi_{\theta'}(\cdot|s_t) \| \pi_\theta(\cdot|s_t) \right) \leq \epsilon
+```
+
+This keeps the updated policy within a **trust region**.
+
+### 🔸 Lagrangian Formulation
+
+We form the Lagrangian:
+
+```math
+\mathcal{L}(\theta', \lambda) = \sum_t \mathbb{E}_{s_t, a_t} \left[ \frac{\pi_{\theta'}(a_t | s_t)}{\pi_\theta(a_t | s_t)} \gamma^t A^{\pi_\theta}(s_t, a_t) \right] - \lambda \left( D_{KL}(\pi_{\theta'}(\cdot | s_t) \| \pi_\theta(\cdot | s_t)) - \epsilon \right)
+```
+
+### 🔸 Dual Gradient Descent
+
+We alternate updates:
+
+1. **Maximize** $\mathcal{L}(\theta', \lambda)$ with respect to $\theta'$
+
+   * Typically use **conjugate gradient** to approximate this step efficiently
+
+2. **Update** $\lambda$ using gradient ascent:
+
+```math
+\lambda \leftarrow \lambda + \alpha (D_{KL} - \epsilon)
+```
+
+This ensures:
+
+* $\lambda$ increases if KL constraint is violated (too large a step)
+* $\lambda$ decreases if the update is too conservative
+
+This is an instance of **primal-dual optimization**.
 ---
 
 ## 🧠 Interpretation
@@ -237,7 +286,3 @@ This is the bridge between **approximate gradient ascent** and **stable policy o
 * Schulman et al. (2015). *Trust Region Policy Optimization (TRPO)*.
 * Schulman et al. (2017). *Proximal Policy Optimization (PPO)*.
 * Achiam (2019). *Spinning Up in Deep RL – Distribution Shift & Importance Sampling*.
-
-
-
-

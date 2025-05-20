@@ -8,6 +8,7 @@ tags: [RL, DQN, Q-learning, online q learning, deep RL]
 
 All from GPT, it looks good for now:)
 
+It is a jouney from one step to batch (replay buffer), we dont want to samples are that correlated.
 ## Is Q-learning an online algorithm?
 
 **Yes.** Classic **tabular Q-learning** is the textbook example of an **online reinforcement learning algorithm**:
