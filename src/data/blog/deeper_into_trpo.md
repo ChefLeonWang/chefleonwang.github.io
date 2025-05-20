@@ -1,7 +1,7 @@
 ---
 
 title: "Deeper dive into TRPO"
-pubDatetime: 2025-05-120T16:00:00Z
+pubDatetime: 2025-05-20T16:00:00Z
 description: "A detailed walkthrough of TRPO's constrained optimization strategy, natural gradient step, and KL trust region."
 tags: [RL, TRPO, Trust Region, Policy Optimization, KL Constraint]
 -------------------------------------------------------------------
