@@ -1,6 +1,6 @@
 ---
 
-title: "Distribution Mismatch and Why Small Policy Updates Work"
+title: "TRPO to PPO: Distribution Mismatch and Why Small Policy Updates Work"
 pubDatetime: 2025-05-20T14:00:00Z
 description: "Combining practical tricks and theoretical bounds to justify ignoring distribution mismatch in policy gradient updates."
 tags: [RL, Policy Gradient, Importance Sampling, TRPO, PPO, Distribution Shift, KL-divergence, PPO-clipping]
