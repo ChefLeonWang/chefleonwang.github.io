@@ -8,6 +8,7 @@ featured: true
 
 # 🍗 Brined, Buttermilk Fried Chicken
 > The best fried chicken.  
+
 吃过很多很多很多的炸鸡（连锁的不连锁的，boston的NYC的NOLA的LA的SF的OAKLAND的），这是升级版的southern fried chicken,原本的recipe来自于“RUHLMAN'S TWENTY”这本书，他的灵感启发于napa valley的AD HOC餐厅。
 
 我自己的最爱是Nashville风格的炸鸡，pickle juice来做为淹渍的汁水（brine）。勤劳人民的结晶。最后刷上甜辣酱，劲，爽。很可惜公路旅行回SF的时候没有去拜访这座有音乐，有美食的城市。
