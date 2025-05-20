@@ -3,7 +3,7 @@
 title: "Distribution Mismatch and Why Small Policy Updates Work"
 pubDatetime: 2025-05-20T14:00:00Z
 description: "Combining practical tricks and theoretical bounds to justify ignoring distribution mismatch in policy gradient updates."
-tags: [RL, Policy Gradient, Importance Sampling, TRPO, PPO, Distribution Shift]
+tags: [RL, Policy Gradient, Importance Sampling, TRPO, PPO, Distribution Shift, KL-divergence, PPO-clipping]
 --------------------------------------------------------------------------------
 
 When optimizing policies in reinforcement learning using policy gradients, we often evaluate objectives using data from the current policy $\pi_\theta$, even though the objective involves the next policy $\pi_{\theta'}$. This introduces a **distribution mismatch** — and yet, it works well in practice.
@@ -24,7 +24,7 @@ We aim to improve the policy by estimating the performance gap:
 J(\theta') - J(\theta) = \mathbb{E}_{\tau \sim p_{\theta'}} \left[ \sum_{t=0}^\infty \gamma^t A^{\pi_\theta}(s_t, a_t) \right]
 ```
 
-This expression tells us how much better the new policy $\pi_{\theta'}$ performs compared to the current policy $\pi_\theta$, using the advantage function defined under the current policy.
+This expression tells us how much better the new policy $\pi_{\theta'}$ performs compared to the current policy $\pi_\theta$, using the **advantage function** defined under the current policy.
 
 However, computing this requires us to sample trajectories from $\pi_{\theta'}$, which is **not available** yet. So we rewrite the expectation over $p_{\theta'}(\tau)$ using **importance sampling**:
 
@@ -154,27 +154,49 @@ Hence, small KL implies that $p_{\theta'}(s_t) \approx p_\theta(s_t)$, and is us
 
 ## 🔧 Clipping in PPO
 
-Clipping is an alternative to KL penalty that avoids explicitly computing divergence:
+Proximal Policy Optimization (PPO) avoids the complexities of second-order optimization (like TRPO) by using a clipped objective to restrict the size of policy updates.
 
-Define the ratio:
+### 🔹 The Motivation
+
+Directly maximizing the surrogate objective using importance sampling:
 
 ```math
-r_t(\theta') = \frac{\pi_{\theta'}(a_t|s_t)}{\pi_\theta(a_t|s_t)}
+\mathbb{E}_t \left[ r_t(\theta') \hat{A}_t \right], \quad \text{where} \quad r_t(\theta') = \frac{\pi_{\theta'}(a_t|s_t)}{\pi_\theta(a_t|s_t)}
 ```
 
-PPO optimizes the clipped surrogate objective:
+can lead to large updates when $r_t(\theta')$ deviates too far from 1.
+
+To prevent this, PPO introduces the **clipped surrogate objective**:
+
+### 🔸 The PPO Objective
 
 ```math
 L^{\text{CLIP}}(\theta') = \mathbb{E}_t \left[ \min \left( r_t(\theta') \hat{A}_t, \text{clip}(r_t(\theta'), 1 - \epsilon, 1 + \epsilon) \hat{A}_t \right) \right]
 ```
 
-This prevents the ratio $r_t$ from going too far from 1, enforcing implicit trust regions and ensuring stable updates.
+This objective:
 
-Clipping is:
+* Encourages improvement when $r_t \approx 1$
+* Suppresses updates that would push $r_t$ outside of $[1 - \epsilon, 1 + \epsilon]$
 
-* Simpler to implement
-* Efficient for large batches
-* A key feature of PPO’s success
+### 🔹 Why It Works
+
+* The $\min$ operator ensures that the improvement is **monotonic** and avoids overshooting
+* Clipping creates a **flat region** in the loss around $r_t = 1$, leading to more stable gradients
+* It **implicitly controls** KL divergence without computing it directly
+
+### 🔹 Visual Intuition
+
+* When $\hat{A}_t > 0$: we don’t want $r_t \gg 1$ to overly favor a good action — clipping caps the advantage
+* When $\hat{A}_t < 0$: we don’t want $r_t \ll 1$ to overly punish — clipping limits how far you move away
+
+In both cases, clipping avoids large policy changes — achieving the same stability goal as TRPO, but with simpler first-order methods.
+
+### 🔹 Typical Values
+
+* $\epsilon \in [0.1, 0.3]$ — common values in PPO implementations
+* Used with **adaptive learning rate** and **early stopping by KL threshold** to further stabilize updates
+
 
 ---
 
@@ -201,7 +223,7 @@ L^{\text{CLIP}}(\theta')
 | Concept             | Role                                                               |                                      |                    |
 | ------------------- | ------------------------------------------------------------------ | ------------------------------------ | ------------------ |
 | Importance Sampling | Use data from old policy to estimate new policy objective          |                                      |                    |
-| TV distance bound   | (                                                                  | p\_{\theta'}(s\_t) - p\_\theta(s\_t) | \leq 2\epsilon t ) |
+| TV distance bound   |                                             |
 | KL divergence       | Convenient surrogate for TV: $D_{\text{KL}}$ bounds TV via Pinsker |                                      |                    |
 | PPO Clipping        | Ensures ratio stays near 1, prevents instability                   |                                      |                    |
 
@@ -215,3 +237,7 @@ This is the bridge between **approximate gradient ascent** and **stable policy o
 * Schulman et al. (2015). *Trust Region Policy Optimization (TRPO)*.
 * Schulman et al. (2017). *Proximal Policy Optimization (PPO)*.
 * Achiam (2019). *Spinning Up in Deep RL – Distribution Shift & Importance Sampling*.
+
+
+
+
