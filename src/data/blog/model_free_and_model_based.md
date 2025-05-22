@@ -3,7 +3,7 @@
 title: "Model-Free vs Model-Based RL: Black Boxes, Internal Models, and the Naming Irony"
 pubDatetime: 2025-05-22T20:00:00Z
 description: "A detailed, intuitive and technical comparison between model-free and model-based reinforcement learning."
-tags: [RL, Model-Free, Model-Based, Policy Learning, Transition Model, Black Box]
+tags: [RL, Model-Free, Model-Based, Policy Learning, Transition Model， Natural Policy Gradient, TRPO, PPO, SAC]
 ----------------------------------------------------------------------------------
 
 ## 🧭 Overview
