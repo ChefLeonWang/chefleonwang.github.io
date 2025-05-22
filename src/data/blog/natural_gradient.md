@@ -5,7 +5,7 @@ pubDatetime: 2025-05-20T19:00:00Z
 description: "A complete introduction to the natural policy gradient: motivation, mathematics, and intuitive meaning."
 tags: [RL, Natural Gradient, Policy Gradient, Optimization, Fisher Information, TRPO, PPO]
 --------------------------------------------------------------------------------
-
+> It is a wonderful paper published by a single person Sham Kakade in 2001 NeurlIPS.
 ## 🎯 Motivation
 
 Vanilla policy gradient methods optimize a stochastic policy $\pi_\theta(a|s)$ using gradient ascent in parameter space. However, this ignores the **geometry** of the underlying probability distribution, leading to inefficient and unstable learning.
