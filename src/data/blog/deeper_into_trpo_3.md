@@ -1,6 +1,6 @@
 ---
 
-title: "Again dive into TRPO:Trust Region Optimization Mathematical Foundations"
+title: "Third dive into TRPO:Trust Region Optimization Mathematical Foundations"
 pubDatetime: 2025-05-22T20:30:00Z
 description: "A standalone mathematical and intuitive guide to trust region optimization and its relevance to safe policy updates."
 tags: [Optimization, Trust Region, TRPO, Constrained Learning, Natural Gradient, KL Divergence]
