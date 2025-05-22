@@ -1,6 +1,6 @@
 ---
 
-title: "Again Dive into TRPO: Understanding TRPO from Macro to Micro"
+title: "Again dive into TRPO: Understanding TRPO from Macro to Micro"
 pubDatetime: 2025-05-22T19:30:00Z
 description: "How Taylor expansion, KL divergence, and the Fisher matrix fit together in Trust Region Policy Optimization."
 tags: [RL, TRPO, Optimization, KL Divergence, Fisher Information, Taylor Expansion, Natural Policy Gradient]
@@ -16,6 +16,7 @@ All the math (Taylor expansions, KL divergence, Fisher Information Matrix) serve
 The core idea of TRPO is:
 
 > ✅ Improve the policy
+
 > 🚫 But don't let it shift too much from the old one
 
 Why? Because big changes to a policy can:
