@@ -1,6 +1,6 @@
 ---
 
-title: "Deeper dive into TRPO"
+title: "Dive into TRPO"
 pubDatetime: 2025-05-20T16:00:00Z
 description: "A detailed walkthrough of TRPO's constrained optimization strategy, natural gradient step, and KL trust region."
 tags: [RL, TRPO, Trust Region, Policy Optimization, KL Constraint]
@@ -13,7 +13,7 @@ tags: [RL, TRPO, Trust Region, Policy Optimization, KL Constraint]
 
 Trust Region Policy Optimization (TRPO) is a reinforcement learning algorithm designed to ensure stable and monotonic policy improvement. 
 
-It does so by solving a constrained optimization problem that **explicitly*** limits **HOW MUCH** the policy is allowed to change between updates.
+It does so by solving a constrained optimization problem that **explicitly** limits **HOW MUCH** the policy is allowed to change between updates.
 
 ---
 
