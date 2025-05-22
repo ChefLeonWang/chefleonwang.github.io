@@ -20,9 +20,9 @@ The core idea of TRPO is:
 
 Why? Because big changes to a policy can:
 
-* Cause instability in learning
-* Lead to distributional shift — where states visited by the new policy differ too much from the ones used to train it
-* Waste data — if the new policy is too different, old trajectories are no longer useful
+* Cause **instability** in learning
+* Lead to **distributional shift** — where states visited by the new policy differ too much from the ones used to train it
+* **Waste data** — if the new policy is too different, old trajectories are no longer useful
 
 TRPO formalizes this with a trust region: only allow updates where the **KL divergence** between new and old policy is below a small threshold $\delta$.
 
