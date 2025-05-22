@@ -15,8 +15,7 @@ All the math (Taylor expansions, KL divergence, Fisher Information Matrix) serve
 
 The core idea of TRPO is:
 
-> ✅ Improve the policy
-<br />
+> ✅ Improve the policy<br />
 > 🚫 But don't let it shift too much from the old one
 
 Why? Because big changes to a policy can:
