@@ -1,7 +1,7 @@
 ---
 title: "Define Uncertainty: Aleatoric and Epistemic"
-pubDatetime: "2025-05-31T10:00:00Z"
-tags: ["RL", "uncertainty", "bayesian", "deep learning", "BNN", "Bootstrap ensembles"]
+pubDatetime: 2025-05-31T10:00:00Z
+tags: [RL, uncertainty, bayesian, deep learning, BNN, Bootstrap ensembles]
 draft: false
 description: "A detailed explanation of aleatoric and epistemic uncertainty, and practical methods to estimate them in deep learning."
 ---
