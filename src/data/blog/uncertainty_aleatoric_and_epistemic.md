@@ -31,17 +31,17 @@ Aleatoric (Latin: *alea*, “dice”) uncertainty refers to randomness in the da
 
 In a predictive distribution \( p(y \mid x) \), aleatoric uncertainty is measured as:
 
-\[
+```math
 \text{Aleatoric} = \mathbb{V}[y \mid x]
-\]
+```
 
 For regression tasks, a common formulation is:
 
-\[
+```math
 y \sim \mathcal{N}(\mu(x), \sigma^2(x))
-\]
+```
 
-where \( \mu(x) \) is the predicted mean, and \( \sigma^2(x) \) models data noise explicitly.
+where ```math\( \mu(x) \)``` is the predicted mean, and ```math\( \sigma^2(x) \)``` models data noise explicitly.
 
 ---
 
@@ -59,15 +59,15 @@ Epistemic (Greek: *epistēmē*, “knowledge”) uncertainty is due to a **lack 
 
 Assuming a Bayesian posterior over model weights \( \theta \sim p(\theta \mid \mathcal{D}) \), the predictive distribution becomes:
 
-\[
+```math
 p(y \mid x, \mathcal{D}) = \int p(y \mid x, \theta) p(\theta \mid \mathcal{D}) d\theta
-\]
+```
 
 Epistemic uncertainty is captured by:
 
-\[
+```math
 \text{Epistemic} = \mathbb{V}_{\theta \sim p(\theta \mid \mathcal{D})}[\mathbb{E}[y \mid x, \theta]]
-\]
+```
 
 ---
 
@@ -87,15 +87,15 @@ Rather than making the entire neural network Bayesian, we only model the output 
 
 Let the network output two values: predicted mean \( \mu(x) \) and log variance \( \log \sigma^2(x) \):
 
-\[
+```math
 y \sim \mathcal{N}(\mu(x), \sigma^2(x))
-\]
+```
 
 We optimize the negative log-likelihood loss:
 
-\[
+```math
 \mathcal{L} = \frac{1}{2\sigma^2(x)}(y - \mu(x))^2 + \frac{1}{2}\log \sigma^2(x)
-\]
+```
 
 ### ✅ Pros
 - Simple to implement
@@ -120,16 +120,16 @@ Instead of turning Dropout off at test time, we **keep it on**, and perform mult
 
 For a given input \( x \), sample predictions:
 
-\[
+```math
 \{ \hat{y}^{(1)}, \hat{y}^{(2)}, \dots, \hat{y}^{(T)} \}
-\]
+```
 
 Then estimate:
 
-\[
+```math
 \mathbb{E}[y] \approx \frac{1}{T} \sum_{t=1}^T \hat{y}^{(t)}, \quad
 \text{Var}[y] \approx \frac{1}{T} \sum_{t=1}^T (\hat{y}^{(t)} - \bar{y})^2
-\]
+```
 
 ### ✅ Pros
 - Approximates **epistemic** uncertainty
@@ -153,22 +153,22 @@ Each model is initialized differently, trained separately.
 
 ### 🔢 Formulation
 
-Train \( M \) networks: \( \{ f^{(1)}, f^{(2)}, \dots, f^{(M)} \} \)
+Train ```math\( M \)``` networks: ```math\( \{ f^{(1)}, f^{(2)}, \dots, f^{(M)} \} \)```
 
 For input \( x \), let:
 
-\[
+```math
 \mu_m(x) = f^{(m)}(x)
-\]
+```
 
 Then compute:
 
-\[
+```math
 \bar{\mu}(x) = \frac{1}{M} \sum_{m=1}^{M} \mu_m(x)
-\]
-\[
+```
+```math
 \text{Uncertainty} = \frac{1}{M} \sum_{m=1}^{M} (\mu_m(x) - \bar{\mu}(x))^2
-\]
+```
 
 ### ✅ Pros
 - Captures both **epistemic** and **aleatoric** (if used with output variance)
