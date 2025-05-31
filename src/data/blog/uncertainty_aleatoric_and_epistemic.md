@@ -29,7 +29,7 @@ Aleatoric (Latin: *alea*, “dice”) uncertainty refers to randomness in the da
 
 ### Mathematical Form
 
-In a predictive distribution \( p(y \mid x) \), aleatoric uncertainty is measured as:
+In a predictive distribution $ p(y \mid x) $, aleatoric uncertainty is measured as:
 
 ```math
 \text{Aleatoric} = \mathbb{V}[y \mid x]
@@ -41,7 +41,7 @@ For regression tasks, a common formulation is:
 y \sim \mathcal{N}(\mu(x), \sigma^2(x))
 ```
 
-where ```math\( \mu(x) \)``` is the predicted mean, and ```math\( \sigma^2(x) \)``` models data noise explicitly.
+where $ \mu(x) $ is the predicted mean, and $ \sigma^2(x) $ models data noise explicitly.
 
 ---
 
@@ -57,7 +57,7 @@ Epistemic (Greek: *epistēmē*, “knowledge”) uncertainty is due to a **lack 
 
 ### Mathematical Form
 
-Assuming a Bayesian posterior over model weights \( \theta \sim p(\theta \mid \mathcal{D}) \), the predictive distribution becomes:
+Assuming a Bayesian posterior over model weights $ \theta \sim p(\theta \mid \mathcal{D}) $, the predictive distribution becomes:
 
 ```math
 p(y \mid x, \mathcal{D}) = \int p(y \mid x, \theta) p(\theta \mid \mathcal{D}) d\theta
