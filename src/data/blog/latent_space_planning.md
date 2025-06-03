@@ -2,7 +2,7 @@
 
 title: "Planning in Latent Space: Model-Based RL beyond Observations"
 pubDatetime: 2025-06-01
-Tags: [lab, reinforcement learning, latent space, model-based RL]
+Tags: [reinforcement learning, latent space, model-based RL, RL, planning]
 draft: false
 description: "An end-to-end explanation of why and how modern model-based reinforcement learning leverages latent state space modeling for stability, scalability, and differentiable planning."
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
