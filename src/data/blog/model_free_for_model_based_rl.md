@@ -68,6 +68,53 @@ When the policy improves, it visits **new states** outside of the training distr
 
 ---
 
+## 📐 What Is a Jacobian?
+
+The **Jacobian** is a matrix of all partial derivatives for a vector-valued function. If a function maps a vector input to a vector output:
+
+$$
+\mathbf{y} = f(\mathbf{x}),\quad \mathbf{x} \in \mathbb{R}^n,\ \mathbf{y} \in \mathbb{R}^m
+$$
+
+Then the **Jacobian matrix** is:
+
+$$
+J_{ij} = \frac{\partial y_i}{\partial x_j},\quad \text{or } J \in \mathbb{R}^{m \times n}
+$$
+
+It tells us how each component of the output changes with respect to each input.
+
+### 🧠 In Deep Learning
+
+* Scalar output (e.g., loss): gradient vector
+* Vector output: Jacobian matrix
+* In neural nets, **backprop multiplies many Jacobians together** — which can cause instability in long chains
+
+### 💥 In Model-Based RL
+
+When backpropagating through multiple time steps and models, you multiply Jacobians across layers, time steps, and architectures:
+
+$$
+\nabla_\theta r_t = \frac{\partial r}{\partial s_T} \cdot \frac{\partial s_T}{\partial a_{T-1}} \cdot \frac{\partial a_{T-1}}{\partial \theta} \cdots
+$$
+
+If any Jacobian is ill-conditioned, gradients may vanish or explode.
+
+### ✅ In Deep ML
+
+Jacobian chains work because:
+
+* Network is unified
+* Residual/skip connections reduce depth
+* Layer norms stabilize activations
+* Gradient flow is smooth and local
+
+> **Jacobian = how change in input causes change in output.**
+> In deep learning: manageable. In model-based RL: chaotic.
+
+
+---
+
 ## 🧠 Solution: Use Model-Free Updates for Policy
 
 Instead of relying on backpropagation to update the policy model, we can use **model-free RL methods** like PPO or TRPO to optimize $\pi_\theta$, while still using a learned world model for rollouts.
@@ -197,3 +244,8 @@ Backpropagation is powerful—but not omnipotent. In complex systems, **decoupli
 * Sutton & Barto, *Reinforcement Learning: An Introduction*, 2018
 * Parmas et al., *PIPP: Flexible Model-Based Policy Search Robust to the Curse of Chaos*, 2018
 * Yarin Gal et al., *Bayesian Deep Learning*, 2016
+
+
+
+
+
