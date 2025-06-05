@@ -16,7 +16,7 @@ tags: [supplements, morning, metabolism, focus, biohacking]
 | 补剂/Supplement                  | 剂量 / Dosage       | 功能说明 / Function |
 |----------------------------------|----------------------|----------------------|
 | **ALCAR (Acetyl-L-Carnitine)**   | 750mg                | 增强线粒体脂肪代谢、提神醒脑 / Enhances mitochondrial fat metabolism and boosts mental clarity |
-| **Black Coffee (espresso, or pour over)** | 1 cup       | be happy |
+| **Black Coffee (espresso, or pour over)** | 1 cup       | be happy |已删除，暂时没有有喝咖啡的渴望
 | **VC**                           | 1000mg               | 抗氧化 / Antioxidant, enhances potassium absorption |
 | **Potassium Citrate**            | 1000mg (~390mg K⁺)   | 补钾防抽筋，碱化身体内环境 / Replenishes potassium, alkalizes system, prevents cramps |
 | **Creatine（肌酸）**             | 2000mg               | 提高力量输出与耐力，防止减脂期间力量下滑 / Enhances strength and endurance, supports lean mass during fat loss |
@@ -24,6 +24,8 @@ tags: [supplements, morning, metabolism, focus, biohacking]
 | **L-Tyrosine（酪氨酸）**        | 500mg（起步）         | 多巴胺前体，增强精神驱动力、抗疲劳与注意力强度 / Dopamine precursor, enhances motivation and attention span |
 | **Maca root powder**        | 5g         |  调节下丘脑-性腺轴（HPTA）、提升 多巴胺敏感性: 精神状态稳定, 延迟长期训练者中枢疲劳
 | **Panax Ginseng（红参）**        | 1000mg        |  中枢神经 + HPA 轴： ⚡ 提高神经兴奋性，抗疲劳
+| **Rosavins（Rhodiola Rosea）**        | 400mg        |  HPA轴抑制 → 减轻皮质醇压力： 情绪韧性、抗压力、稳定节律
+| **Salidroside (Rhodiola Rosea)**        | 100mg        |  多巴胺/去甲肾上腺素, 提神醒脑、抗疲劳、增强注意力
 ---
 
 ## 🧠 目标与策略 / Goals and Strategy
