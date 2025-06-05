@@ -5,6 +5,7 @@ description: >
   记录我清晨服用的补剂组合，用于优化精神状态、代谢效率、减脂执行力与神经系统稳定性。
   Optimizing mental clarity, metabolic efficiency, fat loss execution, and nervous system balance.
 tags: [supplements, morning, metabolism, focus, biohacking]
+featured: true
 ---
 
 # 🌞 Morning Supplements Stack
