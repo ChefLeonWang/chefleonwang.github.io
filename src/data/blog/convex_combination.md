@@ -1,5 +1,5 @@
 ---
-title: "Convex Combination in Machine Learning and Reinforcement Learning"
+title: "Smooth trasition: Convex Combination and other methods"
 description: "An overview of convex combinations and their practical applications in optimization, deep learning, and RL."
 pubDate: 2025-06-07T11:30:00Z
 tags: ["ML", "RL", "convex optimization", "convex combination"]
@@ -90,38 +90,86 @@ Policy ensembles combine diverse behaviors using convex weighting.
 
 Model rollouts may begin from convex combinations of real and simulated states to control bias and variance in planning.
 
----
+## 5. Other Smooth Transition Techniques
 
-## 5. Intuition: Why Use Convex Combinations?
+### 5.1 Exponential Moving Average (EMA)
 
-- Enforces **boundedness** and **interpolation**
-- Enables **smooth updates** and **variance reduction**
-- Aligns with **Bayesian averaging** and probabilistic mixtures
-- Helps in **stabilizing** non-stationary training (e.g., target networks)
+$\theta_t^{\text{EMA}} = \beta \theta_{t-1}^{\text{EMA}} + (1 - \beta) \theta_t$
+Used in parameter smoothing and stability, e.g., Mean Teacher, MoCo.
 
----
+### 5.2 Soft vs. Hard Update
 
-## 6. Visual Intuition
+* **Soft Update**: Smooth transition using convex combination
+* **Hard Update**: Replace entire target parameters at intervals
 
-Interpolating between vectors $\(A\)$ and $\(B\)$ via a convex combination traces a line segment. This generalizes to:
+### 5.3 KL Penalty / Trust Region
+
+Used in TRPO and PPO to prevent large policy shifts:
 
 $$
-x = \sum_i \alpha_i x_i,\quad \alpha_i \geq 0,\ \sum_i \alpha_i = 1
+\max_\theta \mathbb{E}_{s,a} \left[ \frac{\pi_\theta(a|s)}{\pi_{\text{old}}(a|s)} A^{\pi_{\text{old}}}(s,a) \right] - \lambda \text{KL}[\pi_\theta || \pi_{\text{old}}]
 $$
 
-Which defines a point within the **convex hull** of the inputs.
+### 5.4 Entropy Regularization
 
----
+Adds stochasticity to prevent early convergence:
+$\max_\theta \mathbb{E}[r + \alpha \mathcal{H}(\pi(\cdot|s))]$
+Used in SAC and exploration strategies.
 
-## 7. References
+### 5.5 Gradient Clipping
 
-- Polyak, B. T., & Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging.
-- Lillicrap et al., "Continuous Control with Deep Reinforcement Learning" (DDPG), 2016.
-- Fujimoto et al., "Addressing Function Approximation Error in Actor-Critic Methods" (TD3), 2018.
-- Vaswani et al., "Attention is All You Need", 2017.
-- Mnih et al., "Human-level control through deep reinforcement learning" (DQN), 2015.
-- Haarnoja et al., "Soft Actor-Critic", 2018.
+Avoids exploding gradients:
 
----
+```python
+torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+```
 
-*Written with espresso and entropy in mind.* ☕🌀
+### 5.6 Scheduled Annealing
+
+Examples:
+
+* Learning rate decay
+* $\epsilon$-greedy decay
+* Temperature scaling in softmax
+
+### 5.7 Interpolation Between Networks
+
+$f_{\text{interp}} = \alpha f_1 + (1 - \alpha) f_2$
+Used in distillation, ensembling, or model fine-tuning.
+
+### 5.8 Normalization Techniques
+
+* BatchNorm
+* LayerNorm
+  They stabilize internal activations—functionally a smooth transition.
+
+### 5.9 Warm Start / Pretraining
+
+Start from pretrained or related initialization to ensure continuity in training.
+
+## 6. Intuition: Why Use Smooth Transitions?
+
+* Enforces **boundedness** and **gradual adaptation**
+* Prevents **instabilities** in optimization or learning
+* Aligns with **Bayesian updates** and **probabilistic mixtures**
+* Helps with **variance reduction** and **convergence smoothing**
+
+## 7. Visual Intuition
+
+Imagine interpolating between two vectors $A$ and $B$. A convex combination draws a straight line from $A$ to $B$ and picks a point along it.
+
+This generalizes to $n$ points:
+$x = \sum_i \alpha_i x_i \quad \text{where } \alpha_i \geq 0, \sum_i \alpha_i = 1$
+
+## 8. References
+
+* Polyak and Juditsky (1992), *Acceleration of stochastic approximation by averaging*
+* Schulman et al. (2015), *Trust Region Policy Optimization*
+* Lillicrap et al. (2015), *Continuous control with deep reinforcement learning (DDPG)*
+* Haarnoja et al. (2018), *Soft Actor-Critic Algorithms*
+* Vaswani et al. (2017), *Attention is All You Need*
+
+
+
+
+
