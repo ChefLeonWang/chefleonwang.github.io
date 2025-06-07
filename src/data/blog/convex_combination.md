@@ -8,7 +8,7 @@ tags: [ML, RL, convex optimization, convex combination]
 
 ## 1. What is a Convex Combination?
 
-A **convex combination** of two elements $\(A\)$ and $\(B\)$ with a coefficient $\(r \in [0, 1]\)$ is defined as:
+A **convex combination** of two elements $$\(A\)$$ and $$\(B\)$$ with a coefficient $$\(r \in [0, 1]\)$$ is defined as:
 
 $$
 x = (1 - r)A + rB
