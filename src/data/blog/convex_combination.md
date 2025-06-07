@@ -1,8 +1,9 @@
 ---
 title: "Smooth trasition: Convex Combination and other methods"
-description: "An overview of convex combinations and their practical applications in optimization, deep learning, and RL."
 pubDate: 2025-06-07T11:30:00Z
-tags: ["ML", "RL", "convex optimization", "convex combination"]
+description: "An overview of convex combinations and their practical applications in optimization, deep learning, and RL."
+
+tags: [ML, RL, convex optimization, convex combination]
 ---
 
 ## 1. What is a Convex Combination?
