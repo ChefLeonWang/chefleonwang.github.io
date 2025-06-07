@@ -1,6 +1,6 @@
 ---
 title: "Smooth trasition: Convex Combination and other methods"
-pubDate: 2025-06-07T11:30:00Z
+pubDatetime: 2025-06-07T11:30:00Z
 description: "An overview of convex combinations and their practical applications in optimization, deep learning, and RL."
 
 tags: [ML, RL, convex optimization, convex combination]
@@ -37,9 +37,9 @@ Convex combinations appear in geometry, probability, optimization, and learning 
 
 In optimization:
 
-\[
+$$
 \theta_{\text{target}} \leftarrow (1 - \tau)\theta_{\text{target}} + \tau\theta
-\]
+$$
 
 Used in DDPG, TD3 to smooth parameter updates and reduce variance.
 
