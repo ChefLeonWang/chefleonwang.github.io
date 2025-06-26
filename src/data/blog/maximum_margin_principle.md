@@ -1,8 +1,8 @@
 ---
 
 title: "Maximum Margin Principle in SVM and IRL"
+pubDatetime: 2025-06-23T11:30:00Z
 description: "A geometric and mathematical deep dive into the role of margin-based reasoning in classification and inverse reinforcement learning."
-pubDate: 2025-06-23T11:30:00Z
 tags: [irl, svm, maximum margin principle, ml, geometry, rl]
 -----------------------------------------------------------------------
 
