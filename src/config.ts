@@ -6,6 +6,7 @@ export const SITE = {
   title: "Chef Leon",
   subtitle_1: "知之 不知  ",
   subtitle_2: "Formalism x Heuristics",
+  subtitle_3: "Hypocrite ∨ Shameless",
   intro_1:"Good good study, day day drink, gym and read:)",
   intro_2:"不观自在, 不觉有情 夏虫想语冰",
   ogImage: "odg.png",
