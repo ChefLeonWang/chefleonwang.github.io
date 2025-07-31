@@ -1,7 +1,7 @@
 ---
 
 title: "Who created universe"
-pubDatetime: 2025-06-31T11:30:00Z
+pubDatetime: 2025-07-31T11:30:00Z
 description: "If we are created, who created the creator?"
 tags: [for-loop]
 ------------------------------------------------------------------------
