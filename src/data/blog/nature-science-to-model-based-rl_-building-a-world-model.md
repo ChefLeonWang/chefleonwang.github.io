@@ -1,5 +1,5 @@
 ---
-title: "Nature Science to Model-Based RL: Building a World Model"
+title: "Nature Science to Model-Based RL: Building a Adaptive World Model"
 pubDatetime: 2025-08-11T11:30:00Z
 description: "Exploring the deep parallels between natural science and model-based reinforcement learning through the lens of world models."
 tags: [nature science, world model, model-based RL]
@@ -8,7 +8,10 @@ tags: [nature science, world model, model-based RL]
 
 ## Introduction
 
-In both **natural science** and **model-based reinforcement learning (RL)**, the ultimate goal can be framed as **building a world model** — a predictive representation of how the universe or an environment works. This perspective unifies physics, chemistry, biology, and AI into the same conceptual framework.
+In both **natural science** and **model-based reinforcement learning (RL)**, the ultimate goal can be framed as **building a world model** — a predictive representation of how the universe or an environment works. 
+
+
+This perspective unifies physics, chemistry, biology, and AI into the same conceptual framework.
 
 ---
 
@@ -76,3 +79,19 @@ The **world model** is not just an AI concept — it’s a universal idea. From 
 > **Understand the rules of the world well enough to predict, and act effectively within it.**
 
 By recognizing this parallel, we can see AI research as a continuation of humanity’s oldest scientific endeavor: **decoding the universe itself**.
+
+---
+
+## Religion: Refine the Interpretation
+Religion often keeps its core world model unchanged for centuries, even millennia. When new observations appear to contradict it, the response is to reinterpret those observations so they still fit the original framework.
+
+- **Observation**: Something unexpected happens.
+
+- **Reaction**: Re-explain the event so it agrees with the existing model.
+
+- **Outcome**: The world model remains constant, and perceived consistency is preserved.
+
+In RL terms:
+
+> New state distribution → Keep environment model fixed → Reframe observations to match.
+* Religion = Interpretive shield for a static world model.
