@@ -1,7 +1,7 @@
 ---
 title: "Classic Interpolation Methods: Definitions · Formulas · Applications"
 description: "From linear interpolation to spherical, from polynomial to exponential smoothing — a complete guide to classic interpolation techniques with formulas, definitions, and applications in ML, graphics, and signal processing."
-pubDate: 2025-08-15T11:30:00Z
+pubDatetime: 2025-08-15T11:30:00Z
 tags: [interpolation, machine learning]
 ---
 
