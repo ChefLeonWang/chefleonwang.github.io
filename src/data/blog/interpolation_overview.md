@@ -10,7 +10,7 @@ tags: [interpolation, machine learning]
 **Interpolation** is the process of estimating unknown values between known data points.  
 It appears not only in mathematics and computer graphics but also in machine learning, signal processing, animation, and game development.
 
-This article summarizes **classic interpolation methods** with **definitions, formulas, applications**, and **references**, so you can choose the right tool for your task.
+Here summarizes **classic interpolation methods** with **definitions, formulas**, and **applications**, so that we can choose the right tool for our task.
 
 ---
 
