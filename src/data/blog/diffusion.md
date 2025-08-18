@@ -34,20 +34,20 @@ q(x_t | x_{t-1}) = \mathcal N(\sqrt{\alpha_t}\,x_{t-1}, \, \beta_t I).
 $$
 Chained together:
 $$
-\
+
 q(x_{1:T} \mid x_0) = \prod_{t=1}^T q(x_t \mid x_{t-1}).
-\
+
 $$
 Closed-form reparameterization:
 $$
-\[
+
 q(x_t \mid x_0) = \mathcal N(\sqrt{\bar\alpha_t}\,x_0, \, (1-\bar\alpha_t) I),
-\]
+
 $$
 $$
-\[
+
 x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon, \quad \epsilon \sim \mathcal N(0,I).
-\]
+
 $$
 ---
 
@@ -55,15 +55,15 @@ $$
 
 We want to model the reverse chain:
 
-\[
+$$
 p_\theta(x_{0:T}) = p(x_T) \prod_{t=1}^T p_\theta(x_{t-1} \mid x_t),
-\]
+$$
 
 with Gaussian transitions:
 
-\[
+$$
 p_\theta(x_{t-1} \mid x_t) = \mathcal N(\mu_\theta(x_t, t), \Sigma_\theta(x_t, t)).
-\]
+$$
 
 ---
 
@@ -71,19 +71,19 @@ p_\theta(x_{t-1} \mid x_t) = \mathcal N(\mu_\theta(x_t, t), \Sigma_\theta(x_t, t
 
 We lower bound the log-likelihood:
 
-\[
+$$
 \log p_\theta(x_0) \ge 
 \mathbb E_q \left[ \log p_\theta(x_{0:T}) - \log q(x_{1:T}\mid x_0) \right].
-\]
+$$
 
 Expanding yields:
 
-\[
+$$
 \mathcal L_{\text{VLB}} =
 \underbrace{\mathrm{KL}(q(x_T \mid x_0) \,\|\, p(x_T))}_{L_T}
 + \sum_{t=2}^T \underbrace{\mathbb E_q \big[ \mathrm{KL}(q(x_{t-1}\mid x_t,x_0) \,\|\, p_\theta(x_{t-1}\mid x_t)) \big]}_{L_t}
 - \underbrace{\mathbb E_q[\log p_\theta(x_0 \mid x_1)]}_{L_0}.
-\]
+$$
 
 ---
 
@@ -91,21 +91,21 @@ Expanding yields:
 
 Since both forward and reverse are Gaussian, the posterior is closed-form:
 
-\[
+$$
 q(x_{t-1} \mid x_t, x_0) = \mathcal N(\tilde\mu_t(x_t, x_0), \, \tilde\beta_t I),
-\]
+$$
 
 where
 
-\[
+$$
 \tilde\mu_t(x_t,x_0) =
 \frac{\sqrt{\bar\alpha_{t-1}} \beta_t}{1-\bar\alpha_t}\,x_0
 + \frac{\sqrt{\alpha_t}(1-\bar\alpha_{t-1})}{1-\bar\alpha_t}\,x_t,
-\]
+$$
 
-\[
+$$
 \tilde\beta_t = \frac{1-\bar\alpha_{t-1}}{1-\bar\alpha_t}\,\beta_t.
-\]
+$$
 
 ---
 
@@ -113,9 +113,9 @@ where
 
 With fixed variance \(\Sigma_\theta(x_t,t)=\tilde\beta_t I\), the KL reduces to a squared error:
 
-\[
+$$
 L_t = \mathbb E_q \left[ \frac{1}{2\tilde\beta_t} \|\tilde\mu_t(x_t,x_0) - \mu_\theta(x_t,t)\|^2 \right] + \text{const}.
-\]
+$$
 
 ---
 
@@ -123,22 +123,22 @@ L_t = \mathbb E_q \left[ \frac{1}{2\tilde\beta_t} \|\tilde\mu_t(x_t,x_0) - \mu_\
 
 Recall:
 
-\[
+$$
 x_t = \sqrt{\bar\alpha_t} x_0 + \sqrt{1-\bar\alpha_t} \epsilon.
-\]
+$$
 
 We rearrange to express \(x_0\):
 
-\[
+$$
 x_0 = \frac{1}{\sqrt{\bar\alpha_t}} \left(x_t - \sqrt{1-\bar\alpha_t}\,\epsilon \right).
-\]
+$$
 
 Substituting into the posterior mean, we can define:
 
-\[
+$$
 \mu_\theta(x_t,t) = 
 \frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar\alpha_t}} \epsilon_\theta(x_t,t)\right).
-\]
+$$
 
 ---
 
@@ -146,16 +146,16 @@ Substituting into the posterior mean, we can define:
 
 Now the KL term becomes:
 
-\[
+$$
 L_t = \mathbb E_{x_0,\epsilon} \left[ \frac{\alpha_t^2}{2\tilde\beta_t (1-\bar\alpha_t)} \|\epsilon - \epsilon_\theta(x_t,t)\|^2 \right] + \text{const}.
-\]
+$$
 
 The prefactor depends only on the noise schedule.  
 Thus the practical training loss is simply:
 
-\[
+$$
 \boxed{L_{\text{simple}}(\theta) = \mathbb E_{x_0, t, \epsilon} \big[ \|\epsilon - \epsilon_\theta(x_t, t)\|^2 \big]}
-\]
+$$
 
 ---
 
@@ -166,9 +166,9 @@ After training, we generate by reversing the chain:
 1. Start with \(x_T \sim \mathcal N(0,I)\).  
 2. Iteratively compute:
 
-\[
+$$
 x_{t-1} = \mu_\theta(x_t, t) + \sigma_t z, \quad z\sim\mathcal N(0,I).
-\]
+$$
 
 3. After \(T\) steps, obtain \(x_0\).  
 
