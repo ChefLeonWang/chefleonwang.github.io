@@ -28,27 +28,28 @@ We’ll walk through the **full derivation**: from log-likelihood → ELBO → G
 ## 2. Forward Diffusion (Noising Process)
 
 We define a Markov chain that progressively adds Gaussian noise:
-
-\[
+$$
+\
 q(x_t | x_{t-1}) = \mathcal N(\sqrt{\alpha_t}\,x_{t-1}, \, \beta_t I).
-\]
-
+\
+$$
 Chained together:
-
-\[
+$$
+\
 q(x_{1:T} \mid x_0) = \prod_{t=1}^T q(x_t \mid x_{t-1}).
-\]
-
+\
+$$
 Closed-form reparameterization:
-
+$$
 \[
 q(x_t \mid x_0) = \mathcal N(\sqrt{\bar\alpha_t}\,x_0, \, (1-\bar\alpha_t) I),
 \]
-
+$$
+$$
 \[
 x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon, \quad \epsilon \sim \mathcal N(0,I).
 \]
-
+$$
 ---
 
 ## 3. Reverse Diffusion (Denoising Process)

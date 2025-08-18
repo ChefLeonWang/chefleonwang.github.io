@@ -169,20 +169,24 @@ At first glance, their training objective looks deceptively simple: <strong>pred
 <hr>
 <h2 id="2-forward-diffusion-noising-process">2. Forward Diffusion (Noising Process)</h2>
 <p>We define a Markov chain that progressively adds Gaussian noise:</p>
-<p>[
-q(x_t | x_{t-1}) = \mathcal N(\sqrt{\alpha_t},x_{t-1}, , \beta_t I).
-]</p>
+<span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: &#x27;\&#x27; at position 74: …\, \beta_t I).
+\̲" style="color:#cc0000">\
+q(x_t | x_{t-1}) = \mathcal N(\sqrt{\alpha_t}\,x_{t-1}, \, \beta_t I).
+\</span>
 <p>Chained together:</p>
-<p>[
+<span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: &#x27;\&#x27; at position 60: …\mid x_{t-1}).
+\̲" style="color:#cc0000">\
 q(x_{1:T} \mid x_0) = \prod_{t=1}^T q(x_t \mid x_{t-1}).
-]</p>
+\</span>
 <p>Closed-form reparameterization:</p>
-<p>[
-q(x_t \mid x_0) = \mathcal N(\sqrt{\bar\alpha_t},x_0, , (1-\bar\alpha_t) I),
-]</p>
-<p>[
-x_t = \sqrt{\bar\alpha_t},x_0 + \sqrt{1-\bar\alpha_t},\epsilon, \quad \epsilon \sim \mathcal N(0,I).
-]</p>
+<span class="katex-error" title="ParseError: KaTeX parse error: Can&#x27;t use function &#x27;\]&#x27; in math mode at position 83: …r\alpha_t) I),
+\̲]̲" style="color:#cc0000">\[
+q(x_t \mid x_0) = \mathcal N(\sqrt{\bar\alpha_t}\,x_0, \, (1-\bar\alpha_t) I),
+\]</span>
+<span class="katex-error" title="ParseError: KaTeX parse error: Can&#x27;t use function &#x27;\]&#x27; in math mode at position 107: …athcal N(0,I).
+\̲]̲" style="color:#cc0000">\[
+x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon, \quad \epsilon \sim \mathcal N(0,I).
+\]</span>
 <hr>
 <h2 id="3-reverse-diffusion-denoising-process">3. Reverse Diffusion (Denoising Process)</h2>
 <p>We want to model the reverse chain:</p>
