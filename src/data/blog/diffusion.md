@@ -29,9 +29,8 @@ We’ll walk through the **full derivation**: from log-likelihood → ELBO → G
 
 We define a Markov chain that progressively adds Gaussian noise:
 $$
-\
 q(x_t | x_{t-1}) = \mathcal N(\sqrt{\alpha_t}\,x_{t-1}, \, \beta_t I).
-\
+
 $$
 Chained together:
 $$
