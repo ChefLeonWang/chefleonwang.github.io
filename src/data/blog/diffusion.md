@@ -20,8 +20,8 @@ We’ll walk through the **full derivation**: from log-likelihood → ELBO → G
 
 ## 1. Notation and Setup
 
-- Data: \(x_0 \sim p_{\text{data}}(x_0)\).  
-- Noise schedule: \(\{\beta_t\}_{t=1}^T\), with \(\alpha_t = 1-\beta_t\), and \(\bar\alpha_t = \prod_{s=1}^t \alpha_s\).  
+- Data: $$(x_0 \sim p_{\text{data}}(x_0))$$v.  
+- Noise schedule: $$(\{\beta_t\}_{t=1}^T\), with \(\alpha_t = 1-\beta_t\), and \(\bar\alpha_t = \prod_{s=1}^t \alpha_s\). $$ 
 
 ---
 
