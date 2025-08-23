@@ -17,12 +17,12 @@ Here summarizes **classic interpolation methods** with **definitions, formulas**
 ## 1. Linear Interpolation (LERP)
 
 **Definition**  
-Given two points \(a\) and \(b\), interpolate proportionally with \(\lambda \in [0,1]\).
+Given two points \(a\) and \(b\), interpolate proportionally with $$(\lambda \in [0,1])$$.
 
 **Formula**
-\[
+$$
 \text{LERP}(a,b,\lambda) = (1-\lambda)\,a + \lambda\,b
-\]
+$$
 
 **Applications**
 - ML: feature mixing (e.g., Mixup)
@@ -40,12 +40,12 @@ Given two points \(a\) and \(b\), interpolate proportionally with \(\lambda \in 
 Interpolation on the surface of a unit sphere, keeping vector magnitude constant, often for smooth rotation.
 
 **Formula**
-\[
+$$
 \text{SLERP}(a,b,\lambda) =
 \frac{\sin((1-\lambda)\theta)}{\sin\theta}a +
 \frac{\sin(\lambda\theta)}{\sin\theta}b
-\]
-where \(\theta = \cos^{-1}(a\cdot b)\).
+$$
+where \(\theta = \cos^{-1}(a\cdot b)).
 
 **Applications**
 - 3D rotation interpolation (quaternions)
@@ -62,9 +62,9 @@ where \(\theta = \cos^{-1}(a\cdot b)\).
 Fit a single polynomial that exactly passes through all known points.
 
 **Formula (Lagrange form)**
-\[
+$$
 P(x) = \sum_{i=0}^n y_i \prod_{\substack{0 \le j \le n \\ j \ne i}} \frac{x - x_j}{x_i - x_j}
-\]
+$$
 
 **Applications**
 - Numerical computation
@@ -82,9 +82,9 @@ P(x) = \sum_{i=0}^n y_i \prod_{\substack{0 \le j \le n \\ j \ne i}} \frac{x - x_
 Divide data into segments and use low-degree polynomials (e.g., cubic splines) to interpolate smoothly across the whole range.
 
 **Formula (Cubic spline example)**
-\[
+$$
 S_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2 + d_i(x-x_i)^3
-\]
+$$
 defined on each interval \([x_i, x_{i+1}]\).
 
 **Applications**
@@ -121,9 +121,9 @@ First interpolate in the x-direction, then interpolate the results in the y-dire
 A geostatistical interpolation method that uses spatial correlation for weighted averaging.
 
 **Formula (general form)**
-\[
+$$
 \hat{Z}(x_0) = \sum_{i=1}^n \lambda_i Z(x_i)
-\]
+$$
 where weights \(\lambda_i\) come from variogram modeling.
 
 **Applications**
@@ -142,9 +142,9 @@ where weights \(\lambda_i\) come from variogram modeling.
 A recursive interpolation method combining the smoothed past value and the current value, with historical weights decaying exponentially.
 
 **Formula**
-\[
+$$
 \theta_{\text{EMA}}^{(t)} = \beta\,\theta_{\text{EMA}}^{(t-1)} + (1-\beta)\,\theta_{\text{current}}^{(t)}
-\]
+$$
 where \(\beta \in [0,1)\) controls smoothing.
 
 **Applications**
@@ -164,9 +164,9 @@ Apply linear interpolation between each pair of adjacent points; the result is a
 
 **Formula**  
 On interval \([x_i, x_{i+1}]\):
-\[
+$$
 y = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}(x-x_i)
-\]
+$$
 
 **Applications**
 - Simple and efficient real-time interpolation
@@ -184,10 +184,10 @@ y = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}(x-x_i)
 A data augmentation method in deep learning that mixes two samples and their labels proportionally.
 
 **Formula**
-\[
+$$
 \tilde{x} = \lambda x_i + (1-\lambda) x_j,\quad
 \tilde{y} = \lambda y_i + (1-\lambda) y_j
-\]
+$$
 
 **Applications**
 - Image classification generalization
