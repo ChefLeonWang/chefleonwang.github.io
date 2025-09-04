@@ -140,6 +140,50 @@ $$
 
 This shows that minimizing cross-entropy is equivalent to minimizing KL divergence (up to a constant).
 
+---
+
+# 📈 Regression as KL Divergence
+
+In regression, $y \in \mathbb{R}$, and we often model $p(y|x)$ as a **Gaussian distribution**:
+
+$$
+p(y|x) = \mathcal{N}(y; \mu(x), \sigma^2)
+$$
+
+Assume ground-truth distribution is fixed Gaussian with constant variance $\sigma^2$, and model only estimates $\mu_\theta(x)$. Then, the KL divergence between true $P$ and model $Q$ becomes:
+
+$$
+D_{KL}(\mathcal{N}(y; \mu, \sigma^2) \parallel \mathcal{N}(y; \mu_\theta(x), \sigma^2)) = \frac{1}{2\sigma^2} (\mu - \mu_\theta(x))^2
+$$
+
+So minimizing this KL divergence reduces to minimizing **mean squared error (MSE)**:
+
+$$
+\mathcal{L}(\theta) = \mathbb{E}[ (y - \mu_\theta(x))^2 ] = \text{MSE}
+$$
+
+If $\sigma^2$ is also learned, the full **negative log-likelihood loss** becomes:
+
+$$
+\mathcal{L}(\theta) = \frac{1}{2} \log \sigma^2 + \frac{(y - \mu_\theta(x))^2}{2\sigma^2} + \text{const}
+$$
+
+---
+
+# 🔄 Unifying Classification and Regression
+
+Whether your output is discrete or continuous, you are always trying to approximate the **true conditional distribution** $p(y|x)$ with your model $p_\theta(y|x)$. This can always be viewed through the lens of KL divergence:
+
+$$
+\mathcal{L}(\theta) = \mathbb{E}_{x, y}[ D_{KL}(p(y|x) \parallel p_\theta(y|x)) ]
+$$
+
+| Task           | Output Type        | True Distribution               | Model Output                           | KL Form                            | Loss Function |
+| -------------- | ------------------ | ------------------------------- | -------------------------------------- | ---------------------------------- | ------------- |
+| Classification | Discrete (one-hot) | $y \sim \delta(y_i)$            | Softmax                                | $D_{KL}(\delta \parallel \hat{p})$ | Cross-Entropy |
+| Regression     | Continuous (real)  | $\mathcal{N}(y; \mu, \sigma^2)$ | $\mathcal{N}(y; \mu_\theta, \sigma^2)$ | KL between Gaussians               | MSE or NLL    |
+
+---
 ## Summary Table
 
 | Context                | Role of KL Divergence                              |                      |
@@ -151,9 +195,6 @@ This shows that minimizing cross-entropy is equivalent to minimizing KL divergen
 | GANs                   | JS divergence built from KL terms                  |                      |
 | Information Bottleneck | Mutual info $I(X;Z)$ defined via KL                |                      |
 
-## Final Words
-
-KL divergence is not just a theoretical construct — it is **the backbone of modern ML**, from supervised classification to generative modeling and reinforcement learning. Understanding KL helps unlock deeper insights into nearly every ML algorithm.
 
 ## References
 
@@ -165,6 +206,12 @@ KL divergence is not just a theoretical construct — it is **the backbone of mo
 6. Schulman, J., et al. (2015). *Trust Region Policy Optimization*. [arXiv:1502.05477](https://arxiv.org/abs/1502.05477)
 7. Goodfellow, I., et al. (2014). *Generative Adversarial Nets*. [arXiv:1406.2661](https://arxiv.org/abs/1406.2661)
 8. Tishby, N., & Zaslavsky, N. (2015). *Deep learning and the information bottleneck principle*. [arXiv:1503.02406](https://arxiv.org/abs/1503.02406)
+
+
+
+
+
+
 
 
 
