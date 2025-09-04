@@ -1,3 +1,5 @@
+import { interpolators } from "sharp";
+
 export const SITE = {
   website: "https://chefleonwang.github.io", // replace this with your deployed domain
   author: "Leon Wang",
@@ -9,6 +11,7 @@ export const SITE = {
   subtitle_3: "Hypocrite ∨ Shameless",
   intro_1:"Good good study, day day drink, gym and read:)",
   intro_2:"不观自在, 不觉有情 夏虫想语冰",
+  intro_3:"朝闻道，夕继续闻道",
   ogImage: "odg.png",
   lightAndDarkMode: true,
   postPerIndex: 999,
