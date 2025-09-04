@@ -1,6 +1,6 @@
 ---
 
-title: "Why KL Divergence Is Everywhere in Machine Learning"
+title: "KL Divergence in Machine Learning"
 description: "Kullback-Leibler divergence's 'foundational role in ML."
 pubDatetime: 2025-09-01T11:30:00Z
 tags: [machine-learning, information-theory, kl-divergence, cross-entropy, variational-inference, supervised-learning, unsupervised-learning, reinforcement-learning]
@@ -27,6 +27,21 @@ $$
 * KL divergence measures the **expected extra information (in bits or nats)** needed to encode samples from $P$ when using a code optimized for $Q$.
 * It is **not symmetric**, i.e., $D_{KL}(P \parallel Q) \ne D_{KL}(Q \parallel P)$.
 * $D_{KL}(P \parallel Q) \ge 0$, with equality only when $P = Q$ almost everywhere.
+
+## A Brief History of KL Divergence
+
+KL divergence was introduced by **Solomon Kullback** and **Richard A. Leibler** in their 1951 paper titled *"On Information and Sufficiency"* published in the *Annals of Mathematical Statistics*. Their goal was to formalize a way to measure how one probability distribution diverges from another, especially in statistical estimation and hypothesis testing.
+
+The original formulation arose from the desire to extend ideas from **Shannon's information theory**, specifically the notion of entropy, into a statistical framework. KL divergence was initially called "information for discrimination" because it quantifies how well a statistical model $Q$ can be used in place of the true distribution $P$.
+
+**Key contributors and milestones:**
+
+* **Claude Shannon (1948)**: Introduced the foundational ideas of entropy and coding in "A Mathematical Theory of Communication".
+* **Solomon Kullback and Richard Leibler (1951)**: Formalized the divergence now bearing their names.
+* **1960s–1980s**: KL divergence became a key tool in Bayesian statistics, estimation theory, and model selection (e.g., AIC).
+* **2000s–present**: KL divergence is used extensively in deep learning, generative modeling (VAE, GANs), RL, and self-supervised learning.
+
+KL divergence is also known in the literature as **relative entropy**, emphasizing its roots in measuring the relative inefficiency of using one distribution to encode another.
 
 ## Why KL Divergence is Ubiquitous in ML
 
@@ -143,9 +158,13 @@ KL divergence is not just a theoretical construct — it is **the backbone of mo
 ## References
 
 1. Kullback, S., & Leibler, R. A. (1951). *On information and sufficiency*. Annals of Mathematical Statistics.
-2. Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
-3. Murphy, K. P. (2012). *Machine Learning: A Probabilistic Perspective*. MIT Press.
-4. Kingma, D. P., & Welling, M. (2014). *Auto-Encoding Variational Bayes*. [arXiv:1312.6114](https://arxiv.org/abs/1312.6114)
-5. Schulman, J., et al. (2015). *Trust Region Policy Optimization*. [arXiv:1502.05477](https://arxiv.org/abs/1502.05477)
-6. Goodfellow, I., et al. (2014). *Generative Adversarial Nets*. [arXiv:1406.2661](https://arxiv.org/abs/1406.2661)
-7. Tishby, N., & Zaslavsky, N. (2015). *Deep learning and the information bottleneck principle*. [arXiv:1503.02406](https://arxiv.org/abs/1503.02406)
+2. Shannon, C. E. (1948). *A Mathematical Theory of Communication*. Bell System Technical Journal.
+3. Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
+4. Murphy, K. P. (2012). *Machine Learning: A Probabilistic Perspective*. MIT Press.
+5. Kingma, D. P., & Welling, M. (2014). *Auto-Encoding Variational Bayes*. [arXiv:1312.6114](https://arxiv.org/abs/1312.6114)
+6. Schulman, J., et al. (2015). *Trust Region Policy Optimization*. [arXiv:1502.05477](https://arxiv.org/abs/1502.05477)
+7. Goodfellow, I., et al. (2014). *Generative Adversarial Nets*. [arXiv:1406.2661](https://arxiv.org/abs/1406.2661)
+8. Tishby, N., & Zaslavsky, N. (2015). *Deep learning and the information bottleneck principle*. [arXiv:1503.02406](https://arxiv.org/abs/1503.02406)
+
+
+
