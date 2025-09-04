@@ -1,5 +1,3 @@
-import { interpolators } from "sharp";
-
 export const SITE = {
   website: "https://chefleonwang.github.io", // replace this with your deployed domain
   author: "Leon Wang",
