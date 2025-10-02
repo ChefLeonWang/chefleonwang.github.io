@@ -5,7 +5,7 @@ pubDatetime: 2025-10-02T11:30:00Z
 description: "unify typical set hypothesis and monifold hypothesis."
 tags: [information theory, machine learning]
 
-
+---
 Understanding the geometry of data distributions is a central theme in both **machine learning** and **information theory**.  
 Two foundational concepts — the **low-dimensional manifold hypothesis** in machine learning and the **typical set** in Shannon information theory — capture a similar intuition:  
 > **High-dimensional spaces are dominated by noise, and real data/probability mass concentrate in structured, much smaller regions.**
