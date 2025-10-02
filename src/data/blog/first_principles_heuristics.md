@@ -5,7 +5,6 @@ description: "Aristotle fantasy"
 tags: [machine learning, information theory, stastistical mechanics, first-principles]
 ---
 
-# First Principles vs. Heuristics in Machine Learning
 
 ## Historical Roots of First Principles
 
